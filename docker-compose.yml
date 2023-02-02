@@ -10,7 +10,12 @@ services:
       - "3000:3000"
     command: sh -c "cd app && npm start"
     tty: true
-  # backend:
-  #   build:
-  #     context: ./backend
-  #     dockerfile: Dockerfile
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "3001:3001"
+    tty: true
